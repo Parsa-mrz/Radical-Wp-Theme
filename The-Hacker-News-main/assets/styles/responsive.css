@@ -1,0 +1,68 @@
+
+@media (min-width: 576px) {
+
+}
+
+@media (min-width: 768px) {
+    .topBar .fTag{display: inline;}
+    .topBar .container{
+        font-size: 1.4rem;
+        /* padding: 0 3.5rem; */
+    }
+    .topBar .topBarRight >a > i{
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+    .topBar .topBarRight >a{
+        padding:  0 1.2rem;
+    }
+    .topBar .topBarRight >a:nth-last-of-type(1){
+        padding: 0 0 0 1.2rem;
+    }
+    /* ? end top bar */
+    .logoArea{
+        height: 7.7rem;
+    }
+    .logoArea .container{
+        /* padding: 0 3.5rem; */
+    }
+    .sub-button{
+        display: block;
+    }
+    .hamburgerMenuMobile , .logoAreaSearchIconMobile{
+        display: none;
+    }
+    .mobileMenuUl{
+        display: none;
+    }
+    
+    .menu-ul{ padding: 0;}
+    .searchBox{
+        padding: 1rem 0 .5rem;
+    }
+    .searchMenu{
+        box-shadow: 0 5px 0 rgb(223 231 255);
+    }
+}
+
+@media (min-width: 888px) {
+    .banner {min-height: 90px;}
+}
+@media (min-width: 992px) {
+    .topBar .container , .logoArea .container {
+        padding: 0 3.5rem;
+    }
+    .searchBox .container{
+        padding: 0;
+    }
+    .searchB{
+        padding: 1rem 2rem 0 ;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .searchB{
+        padding: 1rem 2rem 0 ;
+    }
+}

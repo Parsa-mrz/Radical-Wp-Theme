@@ -7,8 +7,7 @@
     <title>
         me
     </title>
-    <link rel="icon" type="image/png" href="<?= get_template_directory_uri() . '/assets/images/favIcon/favicon.ico' ?>" />
-    <link href="https://thehackernews.com/downloads/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="icon" type="image/png" href="<?= radical_get_option('radical_favicon') ?>" />
 </head>
 <?php wp_head() ?>
 
@@ -27,17 +26,17 @@
                 </div>
                 <div class="topBarRight">
                     <span class="fTag">Followed by 4.50+ million</span>
-                    <a href="#"><i class="icon-font icon-twitter"></i></a>
-                    <a href="#"><i class="icon-font icon-linkedin"></i></a>
-                    <a href="#"><i class="icon-font icon-facebook"></i></a>
+                    <a href="<?= radical_get_option('twitter_url') ?>"><i class="icon-font icon-twitter"></i></a>
+                    <a href="<?= radical_get_option('linkedin_url') ?>"><i class="icon-font icon-linkedin"></i></a>
+                    <a href="<?= radical_get_option('facebook_url') ?>"><i class="icon-font icon-facebook"></i></a>
                 </div>
             </div>
         </div>
         <div class="logoArea">
             <div class="container">
                 <div class="logoBox">
-                    <a href="/">
-                        <img alt="The Hacker News Logo" class="logoBoxImg" fetchpriority="high" src="assets/images/logo/download.png" />
+                    <a href="<?= home_url() ?>">
+                        <img alt="The Hacker News Logo" class="logoBoxImg" fetchpriority="high" src="<?= radical_get_option('radical_logo') ?>" />
                     </a>
                 </div>
                 <div class="wrapper">
@@ -56,7 +55,7 @@
                 </a>
             </div>
         </div>
-        <ul class="m-menu-ul mobileMenuUl">
+        <!-- <ul class="m-menu-ul mobileMenuUl">
             <li>
                 <a href="/"><i class="icon-font icon-home"></i> Home</a>
             </li>
@@ -66,41 +65,23 @@
             <li>
                 <a href="#" rel=" " target="_blank"><i class="icon-font icon-basket"></i> Webinars</a>
             </li>
-        </ul>
+        </ul> -->
         <div class="searchMenu">
-            <!-- <div class="container"> -->
-            <div class="desktopMenu menu-box cf">
-                <ul class="cf menu-ul">
-                    <li class="show-menu">
-                        <a href="/" itemprop="url">Home</a>
-                    </li>
-                    <li class="eight_plus">
-                        <a href="#">Data Breaches</a>
-                    </li>
-                    <li class="show-menu">
-                        <a href="#">Cyber Attacks</a>
-                    </li>
-                    <li class="show-menu">
-                        <a href="#">Vulnerabilities</a>
-                    </li>
-                    <li class="eight_plus">
-                        <a href="#">Webinars</a>
-                    </li>
-                    <li class="show-menu">
-                        <a href="#" rel=" " target="_blank">Store</a>
-                    </li>
-                    <li class="show-menu">
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-                <div id="desHamMenu" class="button menu-more">
-                    <a class="btn-open"><i class="icon-font icon-menu"></i></a>
-                </div>
-                <div id="desSeaech" class="search-here">
-                    <i class="icon-font icon-search"></i>
+            <div class="container">
+                <div class="desktopMenu menu-box cf">
+                    <?php wp_nav_menu(array(
+                        'theme_location' => 'main-menu',
+                        'menu_class' => 'cf show-menu',
+                        'container_class' => 'cf menu-ul',
+                    )); ?>
+                    <div id="desHamMenu" class="button menu-more">
+                        <a class="btn-open"><i class="icon-font icon-menu"></i></a>
+                    </div>
+                    <div id="desSeaech" class="search-here">
+                        <i class="icon-font icon-search"></i>
+                    </div>
                 </div>
             </div>
-            <!-- </div> -->
             <aside id="searchBox" class="searchBox">
                 <div class="container">
                     <div class="searchB">
@@ -120,22 +101,16 @@
                     <a id="btn-close" class="btn-close" href="javascript:void(0)"><i class="icon-font icon-cancel close-m-i"></i></a>
                 </div>
                 <nav class="o-menu-box cf">
-                    <div class="o-menu-left">
-                        <div class="o-menu-h5">Resources</div>
-                        <ul class="o-menu">
-                            <li><a href="#" rel=" " target="_blank">Webinars</a></li>
-                            <li><a href="#" rel=" " target="_blank">THN Store</a></li>
-                            <li><a href="#" rel=" " target="_blank">Free eBooks</a></li>
-                        </ul>
-                    </div>
-                    <div class="o-menu-right">
-                        <div class="o-menu-h5">About Site</div>
-                        <ul class="o-menu">
-                            <li><a href="#">About THN</a></li>
-                            <li><a href="#">Jobs</a></li>
-                            <li><a href="#">Advertise with us</a></li>
-                        </ul>
-                    </div>
+                    <?php wp_nav_menu(array(
+                        'theme_location' => 'popup-menu-left',
+                        'menu_class' => 'o-menu',
+                        'container_class' => 'o-menu-left',
+                    )); ?>
+                    <?php wp_nav_menu(array(
+                        'theme_location' => 'popup-menu-right',
+                        'menu_class' => 'o-menu',
+                        'container_class' => 'o-menu-right',
+                    )); ?>
                 </nav>
                 <div class="gap"></div>
                 <div class="o-h5">Contact/Tip Us</div>
@@ -148,11 +123,11 @@
                 <div class="gap"></div>
                 <div class="o-h5">Follow Us On Social Media</div>
                 <div class="o-follow cf">
-                    <a href="#" rel=" " target="_blank"><i class="icon-font icon-facebook"></i></a>
-                    <a href="#" rel=" " target="_blank"><i class="icon-font icon-twitter"></i></a>
-                    <a href="#" rel=" " target="_blank"><i class="icon-font icon-linkedin"></i></a>
-                    <a href="#" rel=" " target="_blank"><i class="icon-font icon-youtube"></i></a>
-                    <a href="#" rel=" " target="_blank"><i class="icon-font icon-instagram"></i></a>
+                    <a href="<?= radical_get_option('facebook_url') ?>" rel=" " target="_blank"><i class="icon-font icon-facebook"></i></a>
+                    <a href="<?= radical_get_option('twitter_url') ?>" rel=" " target="_blank"><i class="icon-font icon-twitter"></i></a>
+                    <a href="<?= radical_get_option('linkedin_url') ?>" rel=" " target="_blank"><i class="icon-font icon-linkedin"></i></a>
+                    <a href="<?= radical_get_option('youtube_url') ?>" rel=" " target="_blank"><i class="icon-font icon-youtube"></i></a>
+                    <a href="<?= radical_get_option('telegram_url') ?>" rel=" " target="_blank"><i class="icon-font icon-instagram"></i></a>
                 </div>
                 <div class="o-sub cf">
                     <a href="#" rel=" " target="_blank"><i class="icon-font icon-rss"></i> RSS Feeds</a>

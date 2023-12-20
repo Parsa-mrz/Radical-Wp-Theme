@@ -11,7 +11,17 @@
                                 <div class="post-body">
                                     <div class="clear post-head">
                                         <div class="postmeta">
-                                            <span class="p-author"><i class="icon-font icon-calendar"></i><span class="author"><?php the_time(' F  Y  ') ?></span><i class="icon-font icon-user"></i><span class="author"><?= the_author() ?></span></span><span class="p-tags">AI Security / SaaS Security</span>
+                                            <span class="p-author">
+                                                <i class="icon-font icon-calendar"></i><span class="author"><?php the_time(' F  Y  ') ?></span>
+                                                <i class="icon-font icon-user"></i><span class="author"><?= the_author() ?></span>
+                                            </span><span class="p-tags"> <?php
+                                                                            $tags = get_the_tags();
+                                                                            if (!empty($tags)) {
+                                                                                foreach ($tags as $tag) {
+                                                                                    echo '<a href="' . esc_url(get_tag_link($tag->term_id)) . '">' . esc_html($tag->name) . ' / ' . '</a>';
+                                                                                }
+                                                                            }
+                                                                            ?></span>
                                         </div>
                                     </div>
                                     <div class="articlebody clear cf" id="articlebody">
@@ -21,7 +31,7 @@
                                             </a>
                                         </div>
                                         <p>
-                                            <?php the_content() ?>
+                                            <?php __(the_content(), 'radical') ?>
                                         </p>
                                         <div class="stophere" id="hiddenH1"></div>
                                     </div>
@@ -59,7 +69,7 @@
 
 <section class="below-post babsi cf">
     <div class="below-post-box cf">
-        <div class="latest-title cf">Cybersecurity Resources</div>
+        <div class="latest-title cf"><?= __('Cybersecurity Resources', 'radical') ?></div>
         <div id="load-latest-2">
             <?php
             $args = array(
@@ -83,7 +93,7 @@
 
 <section class="below-post babsi cf">
     <div class="below-post-box cf">
-        <div class="latest-title cf">Cybersecurity Resources</div>
+        <div class="latest-title cf"><?= __('Cybersecurity Resources', 'radical') ?></div>
         <div id="load-latest-2">
             <?php
             $args = array(

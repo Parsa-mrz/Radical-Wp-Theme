@@ -22,10 +22,9 @@
         <div class="topBar">
             <div class="container">
                 <div class="topBarLeft">
-                    <span class="">#1 Trusted Cybersecurity News Platform</span>
                 </div>
                 <div class="topBarRight">
-                    <span class="fTag">Followed by 4.50+ million</span>
+                    <span class="fTag"><?= __('Followed by 4.50+ million', 'radical') ?></span>
                     <a href="<?= radical_get_option('twitter_url') ?>"><i class="icon-font icon-twitter"></i></a>
                     <a href="<?= radical_get_option('linkedin_url') ?>"><i class="icon-font icon-linkedin"></i></a>
                     <a href="<?= radical_get_option('facebook_url') ?>"><i class="icon-font icon-facebook"></i></a>
@@ -47,10 +46,11 @@
                         <i class="icon-font icon-menu m-m-icon"></i>
                     </div>
                 </div>
-                <a class="sub-button" href="#email-outer">
+                <a class="sub-button" href="<?= radical_get_option('newsletter_url') ?>">
                     <div class="sub-style">
-                        <i class="icon-font icon-mail-alt"></i> Get the
-                        Free Newsletter
+                        <i class="icon-font icon-mail-alt"></i>
+                        <?= __('Get the
+                        Free Newsletter', 'radical') ?>
                     </div>
                 </a>
             </div>
@@ -85,9 +85,8 @@
             <aside id="searchBox" class="searchBox">
                 <div class="container">
                     <div class="searchB">
-                        <form action="" id="searchform" method="get">
-                            <input autocomplete="off" id="s" name="q" placeholder="Search Here..." type="text" />
-                            <input name="cx" type="hidden" value="partner-pub-7983783048239650:3179771210" />
+                        <form action="<?php home_url("/"); ?>" id="searchform" method="get">
+                            <input autocomplete="off" id="s" name="s" value="<?php the_search_query(); ?>" placeholder="Search Here..." type="text" />
                         </form>
                         <!-- <span class="underline"></span> -->
                     </div>
@@ -113,15 +112,15 @@
                     )); ?>
                 </nav>
                 <div class="gap"></div>
-                <div class="o-h5">Contact/Tip Us</div>
+                <div class="o-h5"><?= __('Contact/Tip Us', 'radical') ?></div>
                 <div class="o-contact">
-                    <a href="#">
+                    <a href="<?= radical_get_option('contact_url') ?>">
                         <div class="o-contact-icon"><i class="icon-font icon-mail-alt"></i></div>
-                        <span>Reach out to get featured—contact us to send your exclusive story idea, research, hacks, or ask us a question or leave a comment/feedback!</span>
+                        <span><?= __('Reach out to get featured—contact us to send your exclusive story idea, research, hacks, or ask us a question or leave a comment/feedback!', 'radical') ?></span>
                     </a>
                 </div>
                 <div class="gap"></div>
-                <div class="o-h5">Follow Us On Social Media</div>
+                <div class="o-h5"><?= __('Follow Us On Social Media', 'radical') ?></div>
                 <div class="o-follow cf">
                     <a href="<?= radical_get_option('facebook_url') ?>" rel=" " target="_blank"><i class="icon-font icon-facebook"></i></a>
                     <a href="<?= radical_get_option('twitter_url') ?>" rel=" " target="_blank"><i class="icon-font icon-twitter"></i></a>
@@ -130,9 +129,9 @@
                     <a href="<?= radical_get_option('telegram_url') ?>" rel=" " target="_blank"><i class="icon-font icon-instagram"></i></a>
                 </div>
                 <div class="o-sub cf">
-                    <a href="#" rel=" " target="_blank"><i class="icon-font icon-rss"></i> RSS Feeds</a>
-                    <a href="#email-outer"><i class="icon-font icon-bell-alt"></i> Email Alerts</a>
-                    <a href="#" rel=" " target="_blank"><i class="icon-font icon-telegram"></i> Telegram Channel</a>
+                    <a href="<?= radical_get_option('rss_url') ?>" rel=" " target="_blank"><i class="icon-font icon-rss"></i> RSS Feeds</a>
+                    <a href="<?= radical_get_option('email_alerts_url') ?>"><i class="icon-font icon-bell-alt"></i> Email Alerts</a>
+                    <a href="<?= radical_get_option('telegram_chanel_url') ?>" rel=" " target="_blank"><i class="icon-font icon-telegram"></i> Telegram Channel</a>
                 </div>
             </div>
         </aside>

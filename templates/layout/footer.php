@@ -56,17 +56,12 @@
                     )); ?>
                 </div>
                 <div class="f-menu-cl-4 cf">
-                    <?php wp_nav_menu(array(
-                        'theme_location' => 'footer-menu-4',
-                        'menu_class' => 'cf f-menu-list cf',
-                        'container_class' => 'f-menu-cl-1 cf',
-                    )); ?>
-                    <!-- <a class="f-m-b" href="#" rel=" " target="_blank">
+                    <a class="f-m-b" href="<?= radical_get_option('rss_url') ?>" rel=" " target="_blank">
                         <div class="f-menu-bt f-rss"><i class="icon-font icon-rss"></i> RSSFeeds</div>
                     </a>
-                    <a class="f-m-b" href="#">
+                    <a class="f-m-b" href="<?= radical_get_option('contact_url') ?>">
                         <div class="f-menu-bt"><i class="icon-font icon-mail-alt"></i>Contact Us</div>
-                    </a> -->
+                    </a>
                 </div>
             </nav>
             <div class="footer-note cf">

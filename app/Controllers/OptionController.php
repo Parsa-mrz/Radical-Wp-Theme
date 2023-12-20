@@ -11,6 +11,7 @@ class OptionController
         add_action('admin_notices', [$this, 'radical_activation_notice']);
         add_action('cmb2_admin_init', [$this, 'radical_setting']);
 
+
         // Activate Classic Editor
         add_filter('use_block_editor_for_post', '__return_false');
         add_filter('use_widgets_block_editor', '__return_false');
@@ -97,7 +98,7 @@ class OptionController
             )
         );
     }
-    function radical_activation_notice()
+    public function radical_activation_notice()
     {
         // Check if WooCommerce plugin is not active
         if (!is_plugin_active('cmb2/init.php')) {
@@ -110,7 +111,7 @@ class OptionController
             echo '<div class="notice notice-warning is-dismissible"><p>' . $message . '</p><button type="button" class="notice-dismiss"><span class="screen-reader-text">' . __('Dismiss this notice', 'radical') . '</span></button></div>';
         }
     }
-    function radical_setting()
+    public function radical_setting()
     {
 
         /**
@@ -171,6 +172,31 @@ class OptionController
         $cmb_options->add_field(array(
             'name' => __('Telegram URL', 'radical'),
             'id'   => 'telegram_url',
+            'type' => 'text_url',
+        ));
+        $cmb_options->add_field(array(
+            'name' => __('RSS Feeds URL', 'radical'),
+            'id'   => 'rss_url',
+            'type' => 'text_url',
+        ));
+        $cmb_options->add_field(array(
+            'name' => __('Email Alerts URL', 'radical'),
+            'id'   => 'email_alerts_url',
+            'type' => 'text_url',
+        ));
+        $cmb_options->add_field(array(
+            'name' => __('Telegram Chanel URL', 'radical'),
+            'id'   => 'telegram_chanel_url',
+            'type' => 'text_url',
+        ));
+        $cmb_options->add_field(array(
+            'name' => __('Newsletter URL', 'radical'),
+            'id'   => 'newsletter_url',
+            'type' => 'text_url',
+        ));
+        $cmb_options->add_field(array(
+            'name' => __('Contact/Tip Us URL', 'radical'),
+            'id'   => 'contact_url',
             'type' => 'text_url',
         ));
         // theme logo 
@@ -264,5 +290,7 @@ class OptionController
             'type' => 'text_url',
         ));
     }
+
+
 }
 new OptionController();

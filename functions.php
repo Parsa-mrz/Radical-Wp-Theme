@@ -7,6 +7,8 @@ require_once(__DIR__ . '/app/Controllers/LayoutController.php');
 // ================ Add option controller 
 require_once(__DIR__ . '/app/Controllers/OptionController.php');
 
+// ================ Add option controller 
+require_once(__DIR__ . '/app/Controllers/EmailController.php');
 
 /**
  * Wrapper function around cmb2_get_option

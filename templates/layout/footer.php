@@ -1,4 +1,7 @@
 <?php wp_footer(); ?>
+<!-- start email -->
+<?php do_action('email_part_section'); ?>
+<!-- end email -->
 <footer class="footer cf">
     <div class="footer-box clear">
         <div class="footer-stuff clear cf">

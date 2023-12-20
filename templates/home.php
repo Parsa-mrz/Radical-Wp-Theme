@@ -68,13 +68,7 @@
                 if ($query->have_posts()) : ?>
                  <?php
                     while ($query->have_posts()) : $query->the_post(); ?>
-                     <article class="latest cf"><a class="latest-link" href="<?= get_permalink() ?>" rel="" target="_blank">
-                             <div><?php the_post_thumbnail('thumbnail', ['class' => 'lazyload']) ?></div>
-                             <div>
-                                 <div class="latest-h3"><?php __(the_title(), 'radical') ?></div>
-                             </div>
-                             <div class="latest-desc"><?php __(the_excerpt(), 'radical') ?></div>
-                         </a></article>
+                     <?php do_action('category_slider_part_section'); ?>
                      <?php wp_link_pages(); ?>
                  <?php endwhile; ?>
                  <!-- Restore original post data -->
@@ -85,9 +79,5 @@
      </div>
  </section>
 
-
- <!-- start email -->
- <?php do_action('email_part_section'); ?>
- <!-- end email -->
 
  <?php get_footer() ?>

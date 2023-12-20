@@ -11,7 +11,9 @@ class Layout
         add_action('trending_post_part_section', [$this, 'trending_post']);
         add_action('popular_post_part_section', [$this, 'popular_post']);
         add_action('sidebar_banner_part_section', [$this, 'sidebar_banner']);
-
+        add_action('category_slider_part_section', [$this, 'category_slider']);
+        add_action('bottom_share_button_part_section', [$this, 'share_button_bottom']);
+        add_action('left_share_button_part_section', [$this, 'share_button_left']);
     }
     public function add_styles()
     {
@@ -52,6 +54,18 @@ class Layout
     public function sidebar_banner()
     {
         require(get_template_directory() . '/templates/parts/sidebar-banner-part.php');
+    }
+    public function category_slider()
+    {
+        require(get_template_directory() . '/templates/parts/category-slider-part.php');
+    }
+    public function share_button_bottom()
+    {
+        require(get_template_directory() . '/templates/parts/bottom-share-button-part.php');
+    }
+    public function share_button_left()
+    {
+        require(get_template_directory() . '/templates/parts/left-share-button-part.php');
     }
 }
 new Layout();

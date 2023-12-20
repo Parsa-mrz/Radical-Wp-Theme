@@ -3,17 +3,16 @@
         <div class="clear home-post-box cf">
             <div class="home-img clear">
                 <div class="img-ratio">
-                    <?php the_post_thumbnail('home-img-src lazyload') ?>
-                    <!-- <img alt="AI Solutions Are the New Shadow IT" class="home-img-src lazyload" decoding="async" height="380" src="<?= get_template_directory_uri() . '/assets/images/bg-mobile (1).webp' ?>" width="728" /> -->
+                    <?php the_post_thumbnail('thumbnail', ['class' => 'home-img-src lazyload']) ?>
                 </div>
             </div>
             <div class="clear home-right">
                 <h2 class="home-title">
-                    <?php the_title() ?>
+                    <?php __(the_title(), 'radical') ?>
                 </h2>
                 <div class="item-label">
                     <span class="h-datetime">
-                        <i class="icon-font icon-calendar"></i><?php the_time('F j, Y') ?>
+                        <i class="icon-font icon-calendar"></i><?php the_time(' F  Y  ') ?>
                     </span>
                     <span class="h-tags">
                         <?php

@@ -137,6 +137,30 @@ class OptionController
             // 'display_cb'      => false, // Override the options-page form output (CMB2_Hookup::options_page_output()).
             // 'save_button'     => esc_html__( 'Save Theme Options', 'radical' ), // The text for the options-page save button. Defaults to 'Save'.
         ));
+        $cmb_options->add_field(array(
+            'name'           => __('First Category Single Post', 'radical'),
+            'desc'           => __('This Field For Single Post', 'radical'),
+            'id'             => 'first_post_taxonomy_select',
+            'taxonomy'       => 'category', //Enter Taxonomy Slug
+            'type'           => 'taxonomy_select',
+            'remove_default' => 'true', // Removes the default metabox provided by WP core.
+        ));
+        $cmb_options->add_field(array(
+            'name'           => __('Second Category Single Post', 'radical'),
+            'desc'           => __('This Field For Single Post', 'radical'),
+            'id'             => 'second_post_taxonomy_select',
+            'taxonomy'       => 'category', //Enter Taxonomy Slug
+            'type'           => 'taxonomy_select',
+            'remove_default' => 'true', // Removes the default metabox provided by WP core.
+        ));
+        $cmb_options->add_field(array(
+            'name'           => __('Home Category Post', 'radical'),
+            'desc'           => __('This Field For Home Post', 'radical'),
+            'id'             => 'home_post_taxonomy_select',
+            'taxonomy'       => 'category', //Enter Taxonomy Slug
+            'type'           => 'taxonomy_select',
+            'remove_default' => 'true', // Removes the default metabox provided by WP core.
+        ));
 
         /*
          * Options fields ids only need
@@ -290,7 +314,5 @@ class OptionController
             'type' => 'text_url',
         ));
     }
-
-
 }
 new OptionController();

@@ -57,13 +57,17 @@
 
  <section class="below-post babsi cf">
      <div class="below-post-box cf">
-         <div class="latest-title cf">Cybersecurity Resources</div>
+         <?php
+            $args = array(
+                'post_type' => 'post',
+                'posts_per_page' => 4,
+                'category_name'  => radical_get_option('home_post_taxonomy_select'),
+            );
+            $category = get_category_by_slug($args['category_name']);
+            ?>
+         <div class="latest-title cf"><?= __($category->name, 'radical') ?></div>
          <div id="load-latest-2">
              <?php
-                $args = array(
-                    'post_type' => 'post',
-                    'posts_per_page' => 4,
-                );
                 $query = new WP_Query($args);
                 if ($query->have_posts()) : ?>
                  <?php

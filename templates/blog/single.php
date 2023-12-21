@@ -69,13 +69,16 @@
 
 <section class="below-post babsi cf">
     <div class="below-post-box cf">
-        <div class="latest-title cf"><?= __('Cybersecurity Resources', 'radical') ?></div>
+        <?php
+        $args = array(
+            'post_type' => 'post',
+            'posts_per_page' => 4,
+            'category_name'  => radical_get_option('first_post_taxonomy_select'),
+        );
+        $category = get_category_by_slug($args['category_name']); ?>
+        <div class="latest-title cf"><?= __($category->name, 'radical') ?></div>
         <div id="load-latest-2">
             <?php
-            $args = array(
-                'post_type' => 'post',
-                'posts_per_page' => 4,
-            );
             $query = new WP_Query($args);
             if ($query->have_posts()) : ?>
                 <?php
@@ -93,24 +96,26 @@
 
 <section class="below-post babsi cf">
     <div class="below-post-box cf">
-        <div class="latest-title cf"><?= __('Cybersecurity Resources', 'radical') ?></div>
+        <?php
+        $args = array(
+            'post_type' => 'post',
+            'posts_per_page' => 4,
+            'category_name'  => radical_get_option('second_post_taxonomy_select'),
+        );
+        $category = get_category_by_slug($args['category_name']);
+        ?>
+        <div class="latest-title cf"><?= __($category->name, 'radical') ?></div>
         <div id="load-latest-2">
             <?php
-            $args = array(
-                'post_type' => 'post',
-                'posts_per_page' => 4,
-            );
             $query = new WP_Query($args);
             if ($query->have_posts()) : ?>
                 <?php
                 while ($query->have_posts()) : $query->the_post(); ?>
                     <?php do_action('category_slider_part_section'); ?>
-                    <?php wp_link_pages(); ?>
                 <?php endwhile; ?>
                 <!-- Restore original post data -->
                 <?php wp_reset_postdata(); ?>
             <?php endif; ?>
-
         </div>
     </div>
 </section>

@@ -1,6 +1,3 @@
-<!-- <?php
-        echo ("<pre>");
-        var_dump($items); ?> -->
 <div class="wrap">
     <h1>لیست کاربران</h1>
     <br>

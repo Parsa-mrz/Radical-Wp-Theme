@@ -41,20 +41,19 @@
                     'menu_class' => 'cf f-menu-list cf',
                     'container_class' => 'f-menu-cl-1 cf',
                 )); ?>
-                <div class="f-menu-cl-2 cf">
-                    <?php wp_nav_menu(array(
-                        'theme_location' => 'footer-menu-2',
-                        'menu_class' => 'cf f-menu-list cf',
-                        'container_class' => 'f-menu-cl-1 cf',
-                    )); ?>
-                </div>
-                <div class="f-menu-cl-3 cf">
-                    <?php wp_nav_menu(array(
-                        'theme_location' => 'footer-menu-3',
-                        'menu_class' => 'cf f-menu-list cf',
-                        'container_class' => 'f-menu-cl-1 cf',
-                    )); ?>
-                </div>
+
+                <?php wp_nav_menu(array(
+                    'theme_location' => 'footer-menu-2',
+                    'menu_class' => 'cf f-menu-list cf',
+                    'container_class' => 'f-menu-cl-2 cf',
+                )); ?>
+
+                <?php wp_nav_menu(array(
+                    'theme_location' => 'footer-menu-3',
+                    'menu_class' => 'cf f-menu-list cf',
+                    'container_class' => 'f-menu-cl-3 cf',
+                )); ?>
+
                 <div class="f-menu-cl-4 cf">
                     <a class="f-m-b" href="<?= radical_get_option('rss_url') ?>" rel=" " target="_blank">
                         <div class="f-menu-bt f-rss"><i class="icon-font icon-rss"></i> RSSFeeds</div>

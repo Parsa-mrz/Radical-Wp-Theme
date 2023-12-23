@@ -37,3 +37,11 @@ function radical_get_option($key = '', $default = false)
 
     return $val;
 }
+function custom_posts_per_page($query)
+{
+
+    if ($query->is_archive('cpt_name') || $query->is_category()) {
+        set_query_var('posts_per_page', 1);
+    }
+}
+add_action('pre_get_posts', 'custom_posts_per_page');

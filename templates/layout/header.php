@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="<?php bloginfo('charset'); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-        me
+        <?= wp_title() ?>
     </title>
     <link rel="icon" type="image/png" href="<?= radical_get_option('radical_favicon') ?>" />
 </head>
@@ -46,7 +46,7 @@
                         <i class="icon-font icon-menu m-m-icon"></i>
                     </div>
                 </div>
-                <a class="sub-button" href="<?= radical_get_option('newsletter_url') ?>">
+                <a class="sub-button" href="#newsletter">
                     <div class="sub-style">
                         <i class="icon-font icon-mail-alt"></i>
                         <?= __('Get the

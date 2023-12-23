@@ -12,7 +12,7 @@
                 </h2>
                 <div class="item-label">
                     <span class="h-datetime">
-                        <i class="icon-font icon-calendar"></i><?php the_time(' F  Y  ') ?>
+                        <i class="icon-font icon-calendar"></i><?php the_time(' M j, Y') ?>
                     </span>
                     <span class="h-tags">
                         <?php

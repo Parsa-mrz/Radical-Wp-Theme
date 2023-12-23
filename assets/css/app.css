@@ -3,8 +3,8 @@
   --secondary-color: #f8e1db;
   --grey: #425a78;
   --dark: #232f3e;
-  --primary-font: "Roboto";
-  --primary-font-md: "Roboto Medium";
+  --primary-font: "Shabnam";
+  --primary-font-md: "Roboto";
 }
 
 html {
@@ -299,4 +299,9 @@ footer {
   border: 1px solid transparent;
   text-align: center;
   border-radius: 0.25rem;
+}
+.main .page-404 img {
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
 }

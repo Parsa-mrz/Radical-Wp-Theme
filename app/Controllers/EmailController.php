@@ -15,7 +15,7 @@ class Email
             $this->insert($_POST['email']);
         }
 ?>
-        <div class="email-boxBg ">
+        <div class="email-boxBg" id="newsletter">
             <div class="container">
                 <?php if (isset($this->message)) : ?>
                     <div class="alert alert-success" role="alert">

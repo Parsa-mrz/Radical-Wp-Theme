@@ -6,11 +6,14 @@ class OptionController
     {
 
         add_action('after_setup_theme', [$this, 'radical_theme_setup']);
-        add_action('widgets_init', [$this, 'radical_widgets']);
         add_action('init', [$this, 'register_menu']);
         add_action('admin_notices', [$this, 'radical_activation_notice']);
         add_action('cmb2_admin_init', [$this, 'radical_setting']);
 
+        // Remove prefetching to avoid messing up view counts.
+        remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+        // Hook into the WordPress views tracking.
+        add_action('wp_head', [$this, 'radical_track_post_views']);
 
         // Activate Classic Editor
         add_filter('use_block_editor_for_post', '__return_false');
@@ -29,60 +32,10 @@ class OptionController
         add_theme_support('automatic-feed-links');
         /** tag-title **/
         add_theme_support('title-tag');
-        // woocommerce
-        add_theme_support('woocommerce');
         /** post thumbnail **/
         add_theme_support('post-thumbnails');
-    }
-    /**
-     * @since 1.0.0
-     *
-     * @hook widgets_init
-     *
-     * @return
-     */
-    public function radical_widgets()
-    {
-        register_sidebar(array(
-            'name' => __('blog', 'Hiisun-domain'),
-            'id' => 'hiisun_blog',
-            'before_widget' => '<div class="single-widget">',
-            'after_widget' => '</div>',
-            'before_title' => '<h4>',
-            'after_title' => '</h4>',
-        ));
-        register_sidebar(array(
-            'name' => __('shop', 'Hiisun-domain'),
-            'id' => 'hiisun_shop',
-            'before_widget' => '<div class="single-widget">',
-            'after_widget' => '</div>',
-            'before_title' => '<h4>',
-            'after_title' => '</h4>',
-        ));
-        register_sidebar(array(
-            'name' => __('widget-1', 'Hiisun-domain'),
-            'id' => 'widget-1',
-            'before_widget' => '',
-            'after_widget' => '',
-            'before_title' => '',
-            'after_title' => '',
-        ));
-        register_sidebar(array(
-            'name' => __('widget-2', 'Hiisun-domain'),
-            'id' => 'widget-2',
-            'before_widget' => '',
-            'after_widget' => '',
-            'before_title' => '',
-            'after_title' => '',
-        ));
-        register_sidebar(array(
-            'name' => __('widget-3', 'Hiisun-domain'),
-            'id' => 'widget-3',
-            'before_widget' => '',
-            'after_widget' => '',
-            'before_title' => '',
-            'after_title' => '',
-        ));
+        // single post 
+        add_image_size('single-post-size', 300, 400);
     }
     public function register_menu()
     {
@@ -94,7 +47,6 @@ class OptionController
                 'footer-menu-1' => __('Footer 1', 'radical'),
                 'footer-menu-2' => __('Footer 2', 'radical'),
                 'footer-menu-3' => __('Footer 3', 'radical'),
-                'footer-menu-4' => __('Footer 4', 'radical'),
             )
         );
     }
@@ -214,11 +166,6 @@ class OptionController
             'type' => 'text_url',
         ));
         $cmb_options->add_field(array(
-            'name' => __('Newsletter URL', 'radical'),
-            'id'   => 'newsletter_url',
-            'type' => 'text_url',
-        ));
-        $cmb_options->add_field(array(
             'name' => __('Contact/Tip Us URL', 'radical'),
             'id'   => 'contact_url',
             'type' => 'text_url',
@@ -313,6 +260,25 @@ class OptionController
             'id'   => 'sidebar_banner_down_link',
             'type' => 'text_url',
         ));
+    }
+    public function radical_track_post_views($post_id)
+    {
+        if (!is_single()) return;
+        if (empty($post_id)) {
+            global $post;
+            $post_id = $post->ID;
+        }
+
+        $count_key = 'radical_post_views_count';
+        $count = get_post_meta($post_id, $count_key, true);
+        if ($count === '') {
+            $count = 1;
+            delete_post_meta($post_id, $count_key);
+            add_post_meta($post_id, $count_key, $count);
+        } else {
+            $count++;
+            update_post_meta($post_id, $count_key, $count);
+        }
     }
 }
 new OptionController();

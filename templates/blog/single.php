@@ -13,7 +13,7 @@
                                         <div class="postmeta">
                                             <span class="p-author">
                                                 <i class="icon-font icon-calendar"></i><span class="author"><?php the_time(' F  Y  ') ?></span>
-                                                <i class="icon-font icon-user"></i><span class="author"><?= the_author() ?></span>
+                                                <!-- <i class="icon-font icon-user"></i><span class="author"><?= the_author() ?></span> -->
                                             </span><span class="p-tags"> <?php
                                                                             $tags = get_the_tags();
                                                                             if (!empty($tags)) {
@@ -27,7 +27,7 @@
                                     <div class="articlebody clear cf" id="articlebody">
                                         <div class="separator" style="clear: both;">
                                             <a href="#" style="clear: left; display: block; float: left; text-align: center;">
-                                                <?php the_post_thumbnail('medium_large', ['class' => 'home-img-src lazyload']) ?>
+                                                <?php the_post_thumbnail('single-post-size', ['class' => 'home-img-src lazyload']) ?>
                                             </a>
                                         </div>
                                         <p>

@@ -5,6 +5,9 @@
     $args = array(
       'post_type' => 'post',
       'posts_per_page' => 5,
+      'meta_key' => 'radical_post_views_count',
+      'orderby' => 'meta_value_num',
+      'order' => 'DESC',
     );
     $query = new WP_Query($args);
     if ($query->have_posts()) : ?>
@@ -15,7 +18,7 @@
           <a class="pop-link cf" href="https://thn.news/eQGLvlxS" rel="" target="_blank">
             <div class="side-pop-image">
               <figure class="pop-image">
-              <?php the_post_thumbnail('thumbnail', ['class' => 'lazyload']) ?>
+                <?php the_post_thumbnail('thumbnail', ['class' => 'lazyload']) ?>
               </figure>
             </div>
             <div class="pop-desc">

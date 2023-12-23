@@ -565,6 +565,10 @@ a:hover .pop-title {
   outline: 0;
   cursor: pointer;
 }
+.blog-pager-newer-link-mobile a,
+.blog-pager-older-link-mobile a {
+  color: #fff !important;
+}
 .blog-pager-older-link-mobile {
   border-radius: 6px;
   margin: 20px;

@@ -11,10 +11,34 @@
                                     while (have_posts()) {
                                         the_post(); ?>
                                         <?php do_action('blog_box_part_section') ?>
+
                                     <?php
-                                    }
+                                    } ?>
+                                    <div class="pagination">
+                                        <div class="blog-pager clear" id="blog-pager">
+                                            <div class="pagination">
+                                                <span id="blog-pager-newer-link">
+                                                    <?php if (get_previous_posts_link() && is_paged()) : ?>
+                                                        <div class="blog-pager-newer-link-mobile">
+                                                            <i class="icon-font icon-left-open"></i>
+                                                            <?= previous_posts_link('Prev Page'); ?>
+                                                        </div>
+                                                    <?php endif; ?>
+                                                </span>
+                                                <span id="blog-pager-older-link">
+                                                    <div class="blog-pager-newer-link-mobile">
+                                                        <?php if (next_posts_link()) : ?>
+                                                            <?= next_posts_link('Next Page') ?>
+                                                            <i class="icon-font icon-right-open"></i>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php
                                 } else {
-                                    ?>
+                                ?>
                                     <div class=" container" style='text-align: center;'>
                                         <h3><?= __('There is no result for your search', 'radical') ?></h3>
                                         <a href='<?= home_url() ?>'><?= __('Back To Home', 'radical') ?></a>
@@ -22,9 +46,8 @@
                                 <?php
                                 } ?>
                             </div>
-                            <div class="pagination">
-                                <?php echo paginate_links(); ?>
-                            </div>
+
+
                         </div>
                         <div class="clear"></div>
                     </div>

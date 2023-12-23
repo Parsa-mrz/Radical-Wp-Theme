@@ -5,6 +5,8 @@
     $args = array(
       'post_type' => 'post',
       'posts_per_page' => 5,
+      'orderby' => 'date', // Orders the posts by date
+      'order' => 'DESC' // Shows newest posts first
     );
     $query = new WP_Query($args);
     if ($query->have_posts()) : ?>

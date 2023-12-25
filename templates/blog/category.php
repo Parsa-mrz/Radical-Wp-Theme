@@ -8,12 +8,14 @@
                         <div class="blog-posts clear">
                             <div class="category-post">
                                 <?php
+                                $categories = wp_get_post_categories($post->ID);
                                 $args = array(
                                     'post_type' => 'post',
                                     'posts_per_page'    => 10,
                                     'paged'             => $paged,
                                     'orderby'           => 'date',
-                                    'order'             => 'DESC'
+                                    'order'             => 'DESC',
+                                    'category__in'   => $categories,
 
                                 );
                                 $query = new WP_Query($args);
@@ -36,7 +38,7 @@
                             <div class="pagination">
                                 <div class="blog-pager clear" id="blog-pager">
                                     <div class="pagination">
-                                        <?php if (get_previous_posts_link() && is_paged()) : ?>
+                                        <?php if (get_previous_posts_link() && is_paged() && !is_null(get_previous_posts_link())) : ?>
                                             <span id="blog-pager-newer-link">
                                                 <div class="blog-pager-newer-link-mobile">
                                                     <i class="icon-font icon-left-open"></i>
@@ -44,7 +46,7 @@
                                                 </div>
                                             </span>
                                         <?php endif; ?>
-                                        <?php if (get_next_posts_link()) : ?>
+                                        <?php if (get_next_posts_link() && is_null(get_next_posts_link())) : ?>
                                             <span id="blog-pager-older-link">
                                                 <div class="blog-pager-newer-link-mobile">
                                                     <?= next_posts_link('Next Page') ?>

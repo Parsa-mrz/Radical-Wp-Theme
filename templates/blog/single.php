@@ -13,15 +13,9 @@
                                         <div class="postmeta">
                                             <span class="p-author">
                                                 <i class="icon-font icon-calendar"></i><span class="author"><?php the_time(' F  Y  ') ?></span>
-                                                <!-- <i class="icon-font icon-user"></i><span class="author"><?= the_author() ?></span> -->
-                                            </span><span class="p-tags"> <?php
-                                                                            $tags = get_the_tags();
-                                                                            if (!empty($tags)) {
-                                                                                foreach ($tags as $tag) {
-                                                                                    echo '<a href="' . esc_url(get_tag_link($tag->term_id)) . '">' . esc_html($tag->name) . ' / ' . '</a>';
-                                                                                }
-                                                                            }
-                                                                            ?></span>
+                                                <i class="icon-font icon-user"></i><span class="author"><?= the_author_meta('display_name', get_post_field('post_author')) ?></span>
+                                            </span>
+                                            <span class="p-tags"> <?php the_category(' , ') ?></span>
                                         </div>
                                     </div>
                                     <div class="articlebody clear cf" id="articlebody">

@@ -16,12 +16,7 @@
                     </span>
                     <span class="h-tags">
                         <?php
-                        $tags = get_the_tags();
-                        if (!empty($tags)) {
-                            foreach ($tags as $tag) {
-                                echo '<a href="' . esc_url(get_tag_link($tag->term_id)) . '">' . esc_html($tag->name) . '   ' . '</a>';
-                            }
-                        }
+                        the_category(' , ')
                         ?>
                     </span>
                 </div>
